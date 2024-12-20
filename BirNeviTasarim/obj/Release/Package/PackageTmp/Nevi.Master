@@ -1,0 +1,294 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Nevi.master.cs" Inherits="BirNeviTasarim.Nevi" %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Web Tasarım Sitesi</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/Scripts/site.js"></script>
+</head>
+
+<body>
+    <style>
+        /* Genel Ayarlar */
+/* Genel Ayarlar */
+/* Genel Ayarlar */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff1493, #ff6347, #ff4500, #32cd32, #1e90ff, #9400d3);
+    color: white;
+    overflow-x: hidden;
+    padding-bottom: 80px; /* Alt menünün boyutuna göre ayarlanabilir */
+}
+/* Logo Konumu */
+        .site-logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .site-logo img {
+            width: 50px;  /* Logonun boyutunu ayarlayabilirsiniz */
+            height: auto;
+        }
+
+/* Üst Menü - Sabit */
+.header {
+    background: linear-gradient(135deg, #7a3ee2, #3b6fc7, #ff6347); /* Mor, mavi ve turuncu tonları */
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ff1493; /* Border eklendi */
+    padding: 10px 0;
+}
+
+/* Navigasyon Menüsü */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 25px;
+    display: block;
+    transition: 0.3s;
+    font-size: 1.1em;
+}
+
+.navbar ul li a:hover {
+    background: linear-gradient(135deg, #ff6347, #ff4500, #ff1493); /* Hover sırasında canlı renk geçişi */
+    transform: scale(1.1);
+    border-radius: 5px;
+}
+
+/* Alt Menü - Sabit */
+.footer {
+    background: linear-gradient(45deg, #ff5f6d, #ffc371, #6a11cb);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 3px solid #ff5f6d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer.sticky {
+    position: fixed;
+    bottom: 0;
+}
+
+/* Alt Menü İçerik */
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Yatayda ortalamak */
+}
+
+.footer ul li {
+    display: inline-block; /* Yatayda sıralama */
+    margin: 0 15px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ff6347;
+    transform: scale(1.1);
+}
+
+/* Sabit Telefon Alanı */
+.fixed-phone {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #ff6347;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(255, 99, 71, 0.4);
+    transition: 0.3s;
+}
+
+.fixed-phone:hover {
+    background-color: #ff4500;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.fixed-phone i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.fixed-phone a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+
+.fixed-phone a:hover {
+    color: #ff0;
+}
+
+/* Mobil uyumlu tasarım için medya sorguları */
+@media (max-width: 768px) {
+    /* Üst Menü - Yatayda kalması */
+    .navbar ul {
+        flex-direction: row; /* Yatay yön */
+        justify-content: space-between; /* Elemanlar arasında boşluk */
+    }
+
+    .navbar ul li a {
+        font-size: 1.1em;
+        padding: 10px 15px;
+    }
+
+    /* Sabit Telefon Alanı */
+    .fixed-phone {
+        top: unset;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+    }
+
+    /* Alt Menü */
+    .footer {
+        position: relative;
+        padding: 10px 0;
+    }
+
+    .footer ul {
+        display: flex;
+        justify-content: center; /* Yatayda ortalamak */
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer ul li {
+        display: inline-block; /* Yatayda sıralama */
+        margin: 0 15px;
+    }
+
+    .footer ul li a {
+        font-size: 1.1em;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer ul li a:hover {
+        color: #ff6347;
+        transform: scale(1.1);
+    }
+}
+
+    </style>
+    <div class="site-logo">
+    <img src="~/img/br.png" alt="Site Logo" />
+</div>
+
+
+    <!-- Sabit Telefon Alanı -->
+    <div class="fixed-phone">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+905458306849" class="phone-link">Bizi Arayın</a>
+    </div>
+
+    <!-- Üst Menü -->
+    <header class="header">
+        <nav class="navbar">
+            <ul>
+
+                <li><a href="/hakkimizda.aspx">Biz Kimiz</a></li>
+                                <li><a href="/tasarimtalebi.aspx">Tasarım Talebi</a></li>
+
+                <li><a href="/Projelerimiz.aspx">Projelerimiz</a></li>
+<li>
+    <a href="/birtasarim.aspx">
+        <img src="/img/br.png" alt="Website Logo" style="max-height: 35px; width: 90px;">
+    </a>
+</li>
+                <li><a href="/Iletisim.aspx">İletişim</a></li>
+                <li><a href="/KayitOl.aspx">Müşteri Girişi</a></li>
+                                <li><a href="/siparisler.aspx">Siparişlerim</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dinamik İçerik Buraya Gelecek -->
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <!-- İçerik burada yüklenir -->
+    </asp:ContentPlaceHolder>
+
+    <!-- Orta Kısım -->
+    <main class="content">
+        <!-- Bu alana içerik eklenecek -->
+    </main>
+
+    <!-- Alt Menü -->
+ <footer class="footer">
+    <ul>
+        <li><a href="https://www.instagram.com/sametbz16/" target="_blank">Instagram</a></li>
+<li><a href="mailto:sb0669917@gmail.com">Mail</a></li>
+        <li><a href="https://github.com/sametbzkrt16" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/samet-bozkurt-616a6a33b/" target="_blank">LinkedIn</a></li>
+    </ul>
+</footer>
+
+<script>
+    // Sayfa kaydırıldıkça alt menü davranışını kontrol et
+    window.onscroll = function () {
+        var footer = document.querySelector('.footer');
+        var bodyHeight = document.body.offsetHeight;
+        var windowHeight = window.innerHeight;
+        var scrollY = window.scrollY;
+
+        // Sayfa sonuna gelindiğinde alt menüyü sabit tut
+        if (windowHeight + scrollY >= bodyHeight) {
+            footer.classList.add('sticky');
+        } else {
+            footer.classList.remove('sticky');
+        }
+    };
+
+</script>
+</body>
+
+</html>
